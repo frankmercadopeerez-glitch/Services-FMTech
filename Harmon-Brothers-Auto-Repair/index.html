@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título para el nuevo negocio -->
+    <title>Harmon Brothers Auto Repair - Quality Auto Service in Chicago</title>
+    <!-- Favicon de emoji de tuerca/engranaje -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #E5E7EB;
+            /* Efecto de gradiente sutil */
+            background-image: radial-gradient(circle at top right, rgba(217, 180, 128, 0.05), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(217, 180, 128, 0.05), transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.6);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-glow {
+             box-shadow: 0 0 45px rgba(217, 180, 128, 0.1);
+        }
+        /* Color de marca (dorado) */
+        .brand-text {
+            color: #D9B480;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        /* Botón flotante de WhatsApp */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            text-align: center;
+        }
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float img {
+            width: 100%;
+            height: auto;
+        }
+        .whatsapp-text {
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        /* Estilo de botón de acción principal */
+        .action-button {
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2.25rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            background: rgba(217, 180, 128, 0.15);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 180, 128, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .action-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: rgba(217, 180, 128, 0.25);
+            box-shadow: 0 0 25px rgba(217, 180, 128, 0.4);
+        }
+        /* Animación de aparición */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-container">
+        <!-- NÚMERO DE TELÉFONO ACTUALIZADO -->
+        <a href="https://wa.me/17738260390?text=Hello%20Harmon%20Brothers!%20I%20need%20a%20quote%20for%20my%20car." class="whatsapp-float" target="_blank">
+            <img src="images/whatsapp-logo.png" alt="Contact on WhatsApp">
+        </a>
+        <p class="whatsapp-text">Get a Quote!</p>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-effect shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <!-- Nombre del negocio actualizado, con color de marca -->
+             <a href="#home" class="text-xl md:text-2xl font-bold brand-text tracking-tight">
+                Harmon Brothers Auto Repair
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition duration-300">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
+                <a href="#gallery" class="text-gray-300 hover:text-white transition duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#home" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Home</a>
+        <a href="#services" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Services</a>
+        <a href="#about" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">About</a>
+        <a href="#gallery" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Gallery</a>
+        <a href="#contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section py-24 md:py-40">
+            <div class="container mx-auto px-6 text-center reveal relative">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                    Expert <span class="brand-text">Auto Repair</span> Services
+                </h1>
+                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
+                    Keeping your vehicles running smoothly with reliable, high-quality service right here in Chicago.
+                </p>
+                <!-- NÚMERO DE TELÉFONO ACTUALIZADO -->
+                <a href="https://wa.me/17738260390?text=Hello%20Harmon%20Brothers!%20I%20need%20a%20quote%20for%20my%20car." target="_blank" class="action-button">Schedule Appointment</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Services</h2>
+                    <p class="text-md text-gray-400 mt-2">Comprehensive solutions to keep your car in top condition.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Textos ajustados para auto repair -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">Engine Diagnostics</h3>
+                        <p class="text-gray-400">Advanced "Check Engine" light diagnostics and full engine performance analysis.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">Brake & Transmission</h3>
+                        <p class="text-gray-400">Complete brake system repair, fluid flush, and automatic/manual transmission service.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">Suspension & Steering</h3>
+                        <p class="text-gray-400">Shock, strut, and steering component replacement for a smooth, controlled ride.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">Preventive Maintenance</h3>
+                        <p class="text-gray-400">Oil changes, tire rotation, fluid checks, and tune-ups to prevent major issues.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">Electrical Systems</h3>
+                        <p class="text-gray-400">Battery testing, alternator replacement, and complex electrical short diagnostics.</p>
+                    </div>
+                     <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-xl font-bold mb-2 text-white">A/C & Heating</h3>
+                        <p class="text-gray-400">Full air conditioning recharge and service, plus heating system and radiator repair.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="glass-effect rounded-2xl p-8 md:p-12 reveal max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4 text-white">Our Philosophy</h2>
+                    <!-- Texto de "About Us" actualizado -->
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        At <span class="brand-text font-semibold">Harmon Brothers Auto Repair</span>, we believe in honest work and lasting relationships. We are a family-owned team dedicated to excellence, combining decades of experience with modern technology. Our mission is to provide you with a reliable, comfortable, and transparent service experience in a shop where your safety is our top priority.
+                    </V>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Work in Action</h2>
+                    <p class="mt-4 text-lg text-gray-400">Quality repairs, satisfied customers.</p>
+                </div>
+                <!-- Mismas imágenes de 'work' como pediste -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (1).jpg" alt="Auto repair work 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+1'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (2).jpg" alt="Auto repair work 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+2'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (3).jpg" alt="Auto repair work 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+3'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (4).jpg" alt="Auto repair work 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+4'"></div>
+                    <!-- Hidden Results -->
+                    <div class="extra-result hidden reveal overflow-hidden rounded-lg"><img src="images/work (5).jpg" alt="Auto repair work 5" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+5'"></div>
+                    <div class="extra-result hidden reveal overflow-hidden rounded-lg"><img src="images/work (6).jpg" alt="Auto repair work 6" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+6'"></div>
+                </div>
+                <div class="mt-12 reveal">
+                    <button id="toggle-results-btn" class="action-button">See more work</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">What Our Customers Say</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Reseñas genéricas de auto repair -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"Harmon Brothers diagnosed an electrical issue that two other shops couldn't find. Fast, honest, and fair pricing. They are my new go-to mechanics."</p>
+                        <p class="mt-4 font-bold text-white">- Michael T.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"Took my car in for a simple oil change and brake check. The team was professional, didn't try to upsell me, and had me out in under an hour. Highly recommend."</p>
+                        <p class="mt-4 font-bold text-white">- Sarah K.</p>
+                    </div>
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"My A/C went out during the heatwave. They got me in the same day, repaired the compressor, and saved our family road trip. Great service!"</p>
+                        <p class="mt-4 font-bold text-white">- David R.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 text-center reveal">
+                 <h2 class="text-3xl font-bold mb-4 text-white">Ready to get back on the road?</h2>
+                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Visit us in Chicago or contact us to schedule your service. We're here to help keep your car running safely and reliably.</p>
+                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <!-- Enlace de Google Maps actualizado -->
+                    <a href="https://www.google.com/maps/place/Harmon+Brothers+Auto+Repair/@41.8795494,-87.6929108,17z" target="_blank" class="action-button">Get Directions</a>
+                    <!-- NÚMERO DE TELÉFONO ACTUALIZADO -->
+                    <a href="https://wa.me/17738260390?text=Hello%20Harmon%20Brothers!%20I%20need%20a%20quote%20for%20my%20car." target="_blank" class="action-button">Schedule via WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-16">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal">
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a>
+                <a href="#services" class="text-gray-400 hover:text-white transition-colors duration-300">Services</a>
+                <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
+                <a href="#gallery" class="text-gray-400 hover:text-white transition-colors duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a>
+            </div>
+             <div class="mb-6 flex justify-center gap-6">
+                 <!-- Mismos logos de redes sociales -->
+                 <a href="#" target="_blank" class="transition-transform duration-300 hover:scale-110" aria-label="Facebook">
+                    <img src="images/logo-facebook.png" alt="Facebook" class="w-10 h-10">
+                </a>
+                <a href="#" target="_blank" class="transition-transform duration-300 hover:scale-110" aria-label="Instagram">
+                    <img src="images/instagram-logo.png" alt="Instagram" class="w-10 h-10">
+                </a>
+            </div>
+            <!-- Dirección actualizada (basada en búsqueda manual) -->
+            <p class="mb-2"><strong>Location:</strong> 2700 W Cermak Rd, Chicago, IL 60608, USA</p>
+            <!-- NÚMERO DE TELÉFONO ACTUALIZADO -->
+            <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17738260390" class="hover:text-white">(773) 826-0390</a></p>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:contact@harmonbros.com" class="hover:text-white">contact@harmonbros.com</a> (placeholder)</p>
+            <p>&copy; 2025 Harmon Brothers Auto Repair. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Toggle
+        const toggleBtn = document.getElementById('toggle-results-btn');
+        const extraResults = document.querySelectorAll('.extra-result');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                let hiddenCount = 0;
+                extraResults.forEach(result => {
+                    result.classList.toggle('hidden');
+                    if (result.classList.contains('hidden')) {
+                        hiddenCount++;
+                    }
+                });
+
+                if (hiddenCount > 0) {
+                    toggleBtn.textContent = 'See more work';
+                } else {
+                    toggleBtn.textContent = 'See less work';
+                }
+            });
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, nav a');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
