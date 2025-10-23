@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <!-- Título para el nuevo negocio -->
+    <title>Luxury Auto Spa - Crafted Care For Your Daily Drive (Bay Area)</title>
+    <!-- Favicon de emoji de tuerca/engranaje -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #E5E7EB;
+            /* ==== NUEVO: Imagen de fondo ==== */
+            /* Se usará la imagen 'background.png' que pondrás en la carpeta 'images' */
+            background-image: url('images/background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* ==== NUEVO: Capa oscura sobre el fondo ==== */
+        /* Esto se pone sobre la imagen de fondo pero detrás del contenido */
+        /* Ayuda a que el texto blanco resalte más */
+        .body-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Ajusta la opacidad (0.6) si lo quieres más claro o más oscuro */
+            background-color: rgba(17, 17, 17, 0.6); /* #111 con 60% opacidad */
+            z-index: -1;
+        }
+        .glass-effect {
+            background: rgba(18, 18, 18, 0.75); /* Un poco más opaco para legibilidad */
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-glow {
+             box-shadow: 0 0 45px rgba(217, 180, 128, 0.1);
+        }
+        /* Color de marca (dorado) */
+        .brand-text {
+            color: #D9B480;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Botón flotante de WhatsApp ELIMINADO ya que este cliente usa SMS */
+
+        /* Estilo de botón de acción principal */
+        .action-button {
+            color: white;
+            font-weight: 600;
+            padding: 0.85rem 2.25rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            background: rgba(217, 180, 128, 0.15);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(217, 180, 128, 0.4);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .action-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            background: rgba(217, 180, 128, 0.25);
+            box-shadow: 0 0 25px rgba(217, 180, 128, 0.4);
+        }
+        /* Animación de aparición */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+
+    <!-- Capa de superposición para oscurecer el fondo -->
+    <div class="body-overlay"></div>
+
+    <!-- Header -->
+    <header class="glass-effect shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+             <!-- Nombre del negocio actualizado, con color de marca -->
+             <a href="#home" class="text-xl md:text-2xl font-bold brand-text tracking-tight">
+                Luxury Auto Spa
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                <!-- Cambiado "Services" a "Packages" -->
+                <a href="#packages" class="text-gray-300 hover:text-white transition duration-300">Packages</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
+                <a href="#gallery" class="text-gray-300 hover:text-white transition duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#home" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Home</a>
+        <a href="#packages" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Packages</a>
+        <a href="#about" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">About</a>
+        <a href="#gallery" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Gallery</a>
+        <a href="#contact" class="mobile-menu-link text-2xl text-gray-300 hover:text-white">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section py-24 md:py-40">
+            <div class="container mx-auto px-6 text-center reveal relative">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                    Luxury Auto Spa
+                </h1>
+                <!-- Slogan actualizado -->
+                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto brand-text font-semibold">
+                    Crafted Care For Your Daily Drive
+                </p>
+                <p class="text-lg text-gray-400 mb-8 max-w-3xl mx-auto">
+                    Premium auto detailing services designed to protect, restore, and enhance your car.
+                </p>
+                <!-- NÚMERO DE TELÉFONO ACTUALIZADO (tel y sms) -->
+                <a href="tel:+14085134353" class="action-button mr-3">Call (408) 513-4353</a>
+                <a href="sms:+14085134353?&body=Hello%20Luxury%20Auto%20Spa!%20I'd%20like%20to%20get%20a%20quote." target="_blank" class="action-button">Text for a Quote</a>
+            </div>
+        </section>
+
+        <!-- Luxury Packages Section (NUEVA) -->
+        <section id="packages" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Luxury Packages</h2>
+                    <p class="text-md text-gray-400 mt-2">Find the perfect spa experience for your vehicle.</p>
+                </div>
+                <!-- Grid para los 3 paquetes -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Paquete Standard -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-2xl font-bold mb-4 brand-text">Standard Package</h3>
+                        <p class="text-gray-400 mb-6">Perfect for regular upkeep and maintaining your vehicle's shine.</p>
+                        <ul class="space-y-2 text-gray-300 text-left list-disc list-inside">
+                            <li>Exterior hand wash & dry</li>
+                            <li>Wheel & tire cleaning</li>
+                            <li>Interior vacuum</li>
+                            <li>Window cleaning (Inside & out)</li>
+                            <li>Interior wipe-down</li>
+                            <li>Tire shine application</li>
+                        </ul>
+                        <p class="text-gray-400 mt-6 text-sm italic">Duration: 1-1.5hrs. Recommended every 2 weeks.</p>
+                    </div>
+
+                    <!-- Paquete Premium -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal border-2 border-yellow-400/50 shadow-lg shadow-yellow-400/10">
+                        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase">Most Popular</span>
+                        <h3 class="text-2xl font-bold mb-4 brand-text">Premium Package</h3>
+                        <p class="text-gray-400 mb-6">Ideal for vehicles needing deeper cleaning and added protection.</p>
+                        <ul class="space-y-2 text-gray-300 text-left list-disc list-inside">
+                            <li>Exterior hand wash & dry</li>
+                            <li>Wheel & tire cleaning</li>
+                            <li>Interior vacuum</li>
+                            <li>Window cleaning (Inside & out)</li>
+                            <li><span class="font-semibold">Deep interior cleaning</span> (Vents, dash)</li>
+                            <li>Tire shine application</li>
+                            <li><span class="font-semibold">Clay bar treatment</span> (Removes contaminants)</li>
+                            <li>Hand wax or paint sealant</li>
+                            <li>Door jambs cleaned & protected</li>
+                            <li>Leather & vinyl conditioning</li>
+                            <li>Trim & plastic restoration</li>
+                        </ul>
+                        <p class="text-gray-400 mt-6 text-sm italic">Duration: 2-3hrs. Recommended every 1-2 months.</p>
+                    </div>
+
+                    <!-- Paquete Elite -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <h3 class="text-2xl font-bold mb-4 brand-text">Elite Package</h3>
+                        <p class="text-gray-400 mb-6">The ultimate detailing experience for luxury and perfection.</p>
+                        <ul class="space-y-2 text-gray-300 text-left list-disc list-inside">
+                            <li>Includes <span class="font-semibold">Premium Package</span> +</li>
+                            <li><span class="font-semibold">Full paint decontamination & polish</span></li>
+                            <li>Advanced paint sealant</li>
+                            <li><span class="font-semibold">Engine bay cleaning & dressing</span></li>
+                            <li>Steam cleaning of carpets</li>
+                            <li>Headlight restoration</li>
+                            <li>Premium interior fragrance</li>
+                        </ul>
+                        <p class="text-gray-400 mt-6 text-sm italic">Duration: 3-4hrs. Recommended every 3-6 months.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section (Personalizada) -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="glass-effect rounded-2xl p-8 md:p-12 reveal max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-6 text-white">Crafted Care Since 2025</h2>
+                    <!-- Texto de "About Us" actualizado -->
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Founded in 2025, <span class="brand-text font-semibold">Luxury Auto Spa</span> began with a simple mission — to bring luxury-level detailing and protection to every vehicle. What started as a small, passion-driven operation quickly grew into a trusted name in premium auto care across the Bay Area.
+                    </V>
+                    <p class="text-gray-300 leading-relaxed text-lg mt-4">
+                        We combine expert techniques with premium-grade products from <span class="font-semibold">P&S Detail Products</span> and the <span class="font-semibold">Renny Doyle Double Black Collection</span> to ensure every finish shines with perfection.
+                    </p>
+                    
+                    <!-- NUEVA: Sección del Fundador -->
+                    <div class="mt-12 border-t border-gray-700 pt-8">
+                        <h3 class="text-2xl font-bold mb-4 text-white">Meet the Founder</h3>
+                        <p class="text-gray-300 leading-relaxed text-lg">
+                            Founder <span class="brand-text font-semibold">Julio Orellana</span> has been providing premium auto detailing since 2021. Certified through P&S University and an authorized installer of Double Black Renny Doyle Ceramic Coatings, Julio combines passion, precision, and professionalism in every service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Work in Action</h2>
+                    <p class="mt-4 text-lg text-gray-400">Where elegance meets automotive care.</p>
+                </div>
+                <!-- Mismas imágenes de 'work' como pediste -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (1).jpg" alt="Detailing work 1" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+1'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (2).jpg" alt="Detailing work 2" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+2'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (3).jpg" alt="Detailing work 3" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+3'"></div>
+                    <div class="reveal overflow-hidden rounded-lg"><img src="images/work (4).jpg" alt="Detailing work 4" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+4'"></div>
+                    <!-- Hidden Results -->
+                    <div class="extra-result hidden reveal overflow-hidden rounded-lg"><img src="images/work (5).jpg" alt="Detailing work 5" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+5'"></div>
+                    <div class="extra-result hidden reveal overflow-hidden rounded-lg"><img src="images/work (6).jpg" alt="Detailing work 6" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/333/999?text=Work+6'"></div>
+                </div>
+                <div class="mt-12 reveal">
+                    <button id="toggle-results-btn" class="action-button">See more work</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="reveal mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">What Our Customers Say</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Reseña actualizada de Lorena A. -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"I cannot explain how satisfied we are. They went above and beyond our expectations. They took care of every little detail... The carpets were totally messed up. And after their services our car looks brand new."</p>
+                        <p class="mt-4 font-bold text-white">- Lorena A.</p>
+                    </div>
+                    <!-- Review Placeholder 2 -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"Booked the Elite Package. Julio and his team are true professionals. The gloss enhancement and paint sealant made my car's finish look better than when I bought it. Worth every penny."</p>
+                        <p class="mt-4 font-bold text-white">- Michael B.</p>
+                    </div>
+                    <!-- Review Placeholder 3 -->
+                    <div class="glass-effect card-glow p-8 rounded-2xl text-left reveal">
+                        <p class="text-gray-400 italic">"The price for what they did is super affordable. 100% recommend it. We definitely are going to book them in the future."</p>
+                        <p class="mt-4 font-bold text-white">- (From Lorena A. Review)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hours & Service Area Section -->
+        <section id="location-hours" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="glass-effect rounded-2xl p-8 md:p-12 reveal max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Columna de Horarios -->
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-white mb-6">Our Hours</h3>
+                            <ul class="space-y-3 text-gray-300 text-lg">
+                                <!-- Horarios actualizados -->
+                                <li class="flex justify-between"><span>Monday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Tuesday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Wednesday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Thursday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Friday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Saturday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                                <li class="flex justify-between"><span>Sunday:</span> <span class="font-semibold text-green-400">Open 24 Hours</span></li>
+                            </ul>
+                        </div>
+                        <!-- Columna de Área de Servicio -->
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl font-bold text-white mb-6">Service Area</h3>
+                            <p class="text-lg text-gray-300 mb-4">
+                                We are a fully mobile service, proudly serving the entire Bay Area.
+                            </p>
+                            <p class="text-gray-400">
+                                Our primary service areas include:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-400 mt-2">
+                                <li>San Jose</li>
+                                <li>San Francisco</li>
+                                <li>Palo Alto</li>
+                                <li>And all surrounding communities!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 text-center reveal">
+                 <h2 class="text-3xl font-bold mb-4 text-white">Your vehicle deserves a true spa experience.</h2>
+                 <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Call or Text us to schedule your appointment. We bring luxury-level detailing directly to you.</p>
+                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <!-- NÚMERO DE TELÉFONO ACTUALIZADO (tel y sms) -->
+                    <a href="tel:+14085134353" class="action-button">Call (408) 513-4353</a>
+                    <a href="sms:+14085134353?&body=Hello%20Luxury%20Auto%20Spa!%20I'd%20like%20to%20schedule%20an%20appointment." target="_blank" class="action-button">Text to Schedule</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 text-gray-500 py-16">
+        <div class="container mx-auto px-6 text-center text-sm flex flex-col items-center reveal">
+             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8">
+                <a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a>
+                <a href="#packages" class="text-gray-400 hover:text-white transition-colors duration-300">Packages</a>
+                <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a>
+                <a href="#gallery" class="text-gray-400 hover:text-white transition-colors duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a>
+            </div>
+             <div class="mb-6 flex justify-center gap-6">
+                 <!-- Mismos logos de redes sociales -->
+                 <a href="https://www.facebook.com/luxury.autospa_bayarea" target="_blank" class="transition-transform duration-300 hover:scale-110" aria-label="Facebook">
+                    <img src="images/logo-facebook.png" alt="Facebook" class="w-10 h-10">
+                </a>
+                <a href="https://www.instagram.com/luxury.autospa_bayarea" target="_blank" class="transition-transform duration-300 hover:scale-110" aria-label="Instagram">
+                    <img src="images/instagram-logo.png" alt="Instagram" class="w-10 h-10">
+                </a>
+            </div>
+            <!-- Dirección actualizada -->
+            <p class="mb-2"><strong>Location:</strong> Mobile Service - Serving the Bay Area</p>
+            <!-- NÚMERO DE TELÉFONO ACTUALIZADO -->
+            <p class="mb-2"><strong>Phone:</strong> <a href="tel:+14085134353" class="hover:text-white">(408) 513-4353</a> (Call or Text)</D>
+            <p class="mb-4"><strong>Email:</strong> <a href="mailto:contact@luxuryautospa.com" class="hover:text-white">contact@luxuryautospa.com</a> (placeholder)</p>
+            <!-- Nombre de la compañía actualizado -->
+            <p>&copy; 2025 Luxury Auto Spa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery Toggle
+        const toggleBtn = document.getElementById('toggle-results-btn');
+        const extraResults = document.querySelectorAll('.extra-result');
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                let hiddenCount = 0;
+                extraResults.forEach(result => {
+                    result.classList.toggle('hidden');
+                    if (result.classList.contains('hidden')) {
+                        hiddenCount++;
+                    }
+                });
+
+                if (hiddenCount > 0) {
+                    toggleBtn.textContent = 'See more work';
+                } else {
+                    toggleBtn.textContent = 'See less work';
+                }
+            });
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, nav a');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
