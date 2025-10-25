@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prototipos - Car Services</title>
+    <title>Car Service Prototypes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,65 +11,109 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #111111;
+            color: #E5E7EB;
+        }
+        .brand-text {
+            color: #D9B480; /* Gold */
+        }
+        .card {
+            background: rgba(18, 18, 18, 0.7);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(217, 180, 128, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            background-color: #D9B480;
+            color: #111111;
+            transition: all 0.3s ease;
+        }
+        .card a:hover {
+            background-color: #ffffff;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 min-h-screen flex items-center justify-center p-6">
-    
-    <div class="max-w-md w-full bg-gray-800 shadow-lg rounded-2xl p-8 border border-gray-700">
-        
-        <h1 class="text-3xl font-bold text-white text-center mb-8">
-            Prototipos: Car Services
-        </h1>
-        
-        <ul class="space-y-4">
-            
-            <!-- Enlace al Prototipo 1 (CORREGIDO) -->
-            <li>
-                <!-- Se cambió el href de "A-and-J-Truck-Repair/" a "A-and-J/" -->
-                <a href="A-and-J/" 
-                   class="block p-5 bg-gray-700 rounded-lg text-lg font-semibold text-white hover:bg-gray-600 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-md">
-                   1. A-and-J Truck Repair
-                </a>
-            </li>
+<body class="min-h-screen p-8 md:p-12">
+    <div class="container mx-auto max-w-4xl">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-white mb-2">My Client Prototypes</h1>
+            <p class="text-xl brand-text">Car Services</p>
+        </header>
 
-            <!-- Enlace al Prototipo 2 -->
-            <li>
-                <a href="Harmon-Brothers-Auto-Repair/" 
-                   class="block p-5 bg-gray-700 rounded-lg text-lg font-semibold text-white hover:bg-gray-600 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-md">
-                   2. Harmon Brothers Auto Repair
-                </a>
-            </li>
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">A and J Truck Repair</h2>
+                    <p class="text-gray-400 mb-6">Truck repair specialists located in Chicago, IL.</p>
+                    <a href="A-and-J/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
 
-            <!-- Enlace al Prototipo 3 -->
-            <li>
-                <a href="OTO-Rim-Repair/" 
-                   class="block p-5 bg-gray-700 rounded-lg text-lg font-semibold text-white hover:bg-gray-600 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-md">
-                   3. OTO Rim Repair
-                </a>
-            </li>
+                <!-- Card 2 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Harmon Brothers Auto Repair</h2>
+                    <p class="text-gray-400 mb-6">Auto repair shop located in Chicago, IL.</p>
+                    <a href="Harmon-Brothers-Auto-Repair/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">OTO Rim Repair</h2>
+                    <p class="text-gray-400 mb-6">Mobile and in-shop rim repair service in the Bay Area.</p>
+                    <a href="OTO-Rim-Repair/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Zayn's Mobile Auto Detail</h2>
+                    <p class="text-gray-400 mb-6">Top-rated mobile detailing service in the SF Bay & Greater Area.</p>
+                    <a href="Zayns-Mobile-Detail/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
 
-            <!-- Enlace al Prototipo 4 -->
-            <li>
-                <a href="Zayns-Mobile-Detail/" 
-                   class="block p-5 bg-gray-700 rounded-lg text-lg font-semibold text-white hover:bg-gray-600 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-md">
-                   4. Zayn's Mobile Auto Detail
-                </a>
-            </li>
+                <!-- Card 5 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Luxury Auto Spa</h2>
+                    <p class="text-gray-400 mb-6">Premium auto detailing and ceramic coatings in the Bay Area.</p>
+                    <a href="Luxury-Auto-Spa/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Auto Repair Plus</h2>
+                    <p class="text-gray-400 mb-6">General auto repair shop located in Chicago, IL.</p>
+                    <a href="Auto-Repair-Plus/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
 
-            <!-- Enlace al Prototipo 5 -->
-            <li>
-                <a href="Luxury-Auto-Spa/" 
-                   class="block p-5 bg-gray-700 rounded-lg text-lg font-semibold text-white hover:bg-gray-600 hover:text-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-md">
-                   5. Luxury Auto Spa
-                </a>
-            </li>
+                <!-- Card 7 -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">TRAVelite</h2>
+                    <p class="text-gray-400 mb-6">24/7 airport and hotel transportation service in Florida.</p>
+                    <a href="TRAVelite/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
+                
+                <!-- Card 8 (NUEVO) -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Massively Mobile Mechanics</h2>
+                    <p class="text-gray-400 mb-6">Mobile mechanic with transparent pricing in Tampa Bay.</p>
+                    <a href="Massively-Mobile-Mechanics/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
+                
+                <!-- Card 9 (NUEVO) -->
+                <div class="card rounded-2xl p-6">
+                    <h2 class="text-2xl font-semibold text-white mb-3">Stewart's Attention 2 Detail</h2>
+                    <p class="text-gray-400 mb-6">Veteran-owned mobile detailing service in Tampa, FL.</p>
+                    <a href="Stewarts-Attention-2-Detail/" target="_blank" class="font-bold py-2 px-5 rounded-full inline-block">View Site</a>
+                </div>
 
-        </ul>
-
+            </div>
+        </main>
     </div>
-
 </body>
 </html>
-
 
